@@ -2,34 +2,23 @@
   "name": "matrimonial-backend",
   "version": "1.0.0",
   "description": "Matrimonial backend API",
-  "author": "",
   "private": true,
   "license": "MIT",
+
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "postinstall": "prisma generate",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "node dist/main.js",
-    "start:dev": "npx nest start --watch",
-    "start:debug": "npx nest start --debug --watch",
     "start:prod": "node dist/main.js",
+    "start:dev": "ts-node -r tsconfig-paths/register src/main.ts",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio",
-    "create-admin": "node scripts/create-admin.js",
     "seed": "ts-node prisma/seed.ts"
   },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
-  },
+
   "dependencies": {
-    "@nestjs/cli": "^10.4.9",
     "@nestjs/common": "^10.3.0",
     "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.3.0",
@@ -57,13 +46,14 @@
     "socket.io": "^4.6.1",
     "twilio": "^4.20.0"
   },
+
   "devDependencies": {
+    "@nestjs/cli": "^10.4.9",
     "@nestjs/schematics": "^10.0.3",
     "@nestjs/testing": "^10.3.0",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.11",
-    "@types/multer": "^1.4.11",
     "@types/node": "^20.19.25",
     "@types/nodemailer": "^6.4.14",
     "@types/passport-google-oauth20": "^2.0.14",
@@ -84,16 +74,5 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
-  },
-  "jest": {
-    "moduleFileExtensions": ["js", "json", "ts"],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": ["**/*.(t|j)s"],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
   }
 }
