@@ -1,0 +1,32 @@
+export declare class SearchFiltersDto {
+    gender?: string;
+    minAge?: number;
+    maxAge?: number;
+    minHeight?: number;
+    maxHeight?: number;
+    religion?: string;
+    religions?: string[];
+    caste?: string;
+    castes?: string[];
+    city?: string;
+    cities?: string[];
+    state?: string;
+    states?: string[];
+    countries?: string[];
+    education?: string;
+    educations?: string[];
+    occupations?: string[];
+    minIncome?: number;
+    maxIncome?: number;
+    manglik?: boolean;
+    withPhoto?: boolean;
+    verifiedOnly?: boolean;
+    motherTongue?: string[];
+    maritalStatuses?: string[];
+    familyTypes?: string[];
+    diets?: string[];
+    workingAbroad?: boolean;
+    nri?: boolean;
+    smoking?: boolean;
+    drinking?: boolean;
+}

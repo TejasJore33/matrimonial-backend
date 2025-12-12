@@ -1,0 +1,93 @@
+import { PrismaService } from '../prisma/prisma.service';
+export declare class SocialService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    generateProfileShareLink(userId: string): Promise<{
+        shareLink: string;
+        shortLink: string;
+    }>;
+    generateProfileQRCode(userId: string): Promise<{
+        qrCode: string;
+        profileUrl: string;
+    }>;
+    getProfileForPrint(userId: string): Promise<{
+        printDate: string;
+        printUrl: string;
+        user: {
+            email: string;
+            mobile: string;
+            id: string;
+            isEmailVerified: boolean;
+            isMobileVerified: boolean;
+        };
+        photos: {
+            url: string;
+            id: string;
+            createdAt: Date;
+            profileId: string;
+            cloudinaryId: string | null;
+            isPrimary: boolean;
+            isBlurred: boolean;
+            isApproved: boolean;
+            order: number;
+            albumName: string | null;
+            caption: string | null;
+        }[];
+        gender: import(".prisma/client").$Enums.Gender | null;
+        religion: string | null;
+        motherTongue: string | null;
+        dateOfBirth: Date | null;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        status: import(".prisma/client").$Enums.ProfileStatus;
+        firstName: string | null;
+        lastName: string | null;
+        height: number | null;
+        maritalStatus: import(".prisma/client").$Enums.MaritalStatus | null;
+        caste: string | null;
+        manglik: boolean | null;
+        gothra: string | null;
+        country: string | null;
+        state: string | null;
+        city: string | null;
+        citizenship: string | null;
+        education: string | null;
+        college: string | null;
+        occupation: string | null;
+        income: number | null;
+        incomeCurrency: string | null;
+        fatherOccupation: string | null;
+        motherOccupation: string | null;
+        siblings: number | null;
+        familyType: import(".prisma/client").$Enums.FamilyType | null;
+        diet: import(".prisma/client").$Enums.Diet | null;
+        smoking: boolean | null;
+        drinking: boolean | null;
+        hobbies: string | null;
+        partnerPreferences: import("@prisma/client/runtime/library").JsonValue | null;
+        videoIntroUrl: string | null;
+        biodataUrl: string | null;
+        aboutMe: string | null;
+        highlights: import("@prisma/client/runtime/library").JsonValue | null;
+        latitude: number | null;
+        longitude: number | null;
+        privacySettings: import("@prisma/client/runtime/library").JsonValue | null;
+        isHiddenFromSearch: boolean;
+        isAnonymousViewing: boolean;
+        contactPrivacyLevel: string | null;
+        photoPrivacyLevel: string | null;
+        isVerified: boolean;
+        verifiedAt: Date | null;
+        trustScore: number;
+        completenessScore: number;
+        isHighlighted: boolean;
+        slug: string | null;
+        userId: string;
+    }>;
+    shareToSocialMedia(userId: string, platform: string): Promise<{
+        platform: string;
+        shareUrl: string;
+        profileUrl: string;
+    }>;
+}

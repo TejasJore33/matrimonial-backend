@@ -1,0 +1,149 @@
+import { ChatEnhancementsService } from './chat-enhancements.service';
+export declare class ChatEnhancementsController {
+    private chatEnhancementsService;
+    constructor(chatEnhancementsService: ChatEnhancementsService);
+    getMessageTemplates(user: any, category?: string): Promise<{
+        name: string;
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        userId: string;
+        content: string;
+        category: string | null;
+    }[]>;
+    createMessageTemplate(user: any, body: {
+        name: string;
+        content: string;
+        category?: string;
+    }): Promise<any>;
+    updateMessageTemplate(user: any, id: string, body: {
+        name?: string;
+        content?: string;
+        category?: string;
+    }): Promise<any>;
+    deleteMessageTemplate(user: any, id: string): Promise<any>;
+    getIceBreakers(user: any, profileId: string): Promise<{
+        defaultQuestions: string[];
+        savedBreakers: any;
+    }>;
+    saveIceBreaker(user: any, profileId: string, body: {
+        question: string;
+        answer?: string;
+    }): Promise<any>;
+    getChatReminders(user: any): Promise<{
+        chatId: string;
+        otherUser: {
+            profile: {
+                photos: {
+                    url: string;
+                    id: string;
+                    createdAt: Date;
+                    profileId: string;
+                    cloudinaryId: string | null;
+                    isPrimary: boolean;
+                    isBlurred: boolean;
+                    isApproved: boolean;
+                    order: number;
+                    albumName: string | null;
+                    caption: string | null;
+                }[];
+            } & {
+                gender: import(".prisma/client").$Enums.Gender | null;
+                religion: string | null;
+                motherTongue: string | null;
+                dateOfBirth: Date | null;
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                status: import(".prisma/client").$Enums.ProfileStatus;
+                firstName: string | null;
+                lastName: string | null;
+                height: number | null;
+                maritalStatus: import(".prisma/client").$Enums.MaritalStatus | null;
+                caste: string | null;
+                manglik: boolean | null;
+                gothra: string | null;
+                country: string | null;
+                state: string | null;
+                city: string | null;
+                citizenship: string | null;
+                education: string | null;
+                college: string | null;
+                occupation: string | null;
+                income: number | null;
+                incomeCurrency: string | null;
+                fatherOccupation: string | null;
+                motherOccupation: string | null;
+                siblings: number | null;
+                familyType: import(".prisma/client").$Enums.FamilyType | null;
+                diet: import(".prisma/client").$Enums.Diet | null;
+                smoking: boolean | null;
+                drinking: boolean | null;
+                hobbies: string | null;
+                partnerPreferences: import("@prisma/client/runtime/library").JsonValue | null;
+                videoIntroUrl: string | null;
+                biodataUrl: string | null;
+                aboutMe: string | null;
+                highlights: import("@prisma/client/runtime/library").JsonValue | null;
+                latitude: number | null;
+                longitude: number | null;
+                privacySettings: import("@prisma/client/runtime/library").JsonValue | null;
+                isHiddenFromSearch: boolean;
+                isAnonymousViewing: boolean;
+                contactPrivacyLevel: string | null;
+                photoPrivacyLevel: string | null;
+                isVerified: boolean;
+                verifiedAt: Date | null;
+                trustScore: number;
+                completenessScore: number;
+                isHighlighted: boolean;
+                slug: string | null;
+                userId: string;
+            };
+        } & {
+            email: string | null;
+            mobile: string | null;
+            password: string | null;
+            role: import(".prisma/client").$Enums.UserRole;
+            id: string;
+            googleId: string | null;
+            appleId: string | null;
+            referralCode: string | null;
+            isEmailVerified: boolean;
+            isMobileVerified: boolean;
+            fcmToken: string | null;
+            referredBy: string | null;
+            points: number;
+            lastActiveAt: Date | null;
+            isOnline: boolean;
+            lastLoginDate: Date | null;
+            loginStreak: number;
+            createdAt: Date;
+            updatedAt: Date;
+            lastLoginAt: Date | null;
+            gdprConsent: boolean;
+            gdprConsentAt: Date | null;
+            deletedAt: Date | null;
+            preferredLanguage: string | null;
+            notificationPreferences: import("@prisma/client/runtime/library").JsonValue | null;
+        };
+        lastUnreadMessage: {
+            id: string;
+            createdAt: Date;
+            isRead: boolean;
+            chatId: string;
+            senderId: string;
+            content: string | null;
+            imageUrl: string | null;
+            videoUrl: string | null;
+            audioUrl: string | null;
+            fileUrl: string | null;
+            fileName: string | null;
+            messageType: string;
+            isDeleted: boolean;
+            deletedBy: string[];
+            isReported: boolean;
+        };
+        unreadCount: number;
+    }[]>;
+}
