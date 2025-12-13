@@ -52,9 +52,19 @@ async function bootstrap() {
 
   const port = process.env.PORT || 4000;
   const host = process.env.HOST || '0.0.0.0'; // Listen on all network interfaces
-  await app.listen(port, host);
-  console.log(`Application is running on: http://${host}:${port}`);
-  console.log(`Local access: http://localhost:${port}`);
+  
+  try {
+    await app.listen(port, host);
+    console.log(`Application is running on: http://${host}:${port}`);
+    console.log(`Local access: http://localhost:${port}`);
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
 }
-bootstrap();
+
+bootstrap().catch((error) => {
+  console.error('Bootstrap failed:', error);
+  process.exit(1);
+});
 
