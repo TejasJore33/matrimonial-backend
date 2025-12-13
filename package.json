@@ -7,7 +7,6 @@
 
   "scripts": {
     "build": "npx prisma generate && tsc -p tsconfig.build.json",
-    "postinstall": "npx prisma generate",
     "start": "node dist/main.js",
     "start:prod": "node dist/main.js",
     "start:dev": "ts-node -r tsconfig-paths/register src/main.ts",
@@ -28,8 +27,8 @@
     "@nestjs/platform-socket.io": "^10.3.0",
     "@nestjs/websockets": "^10.3.0",
 
-    "@prisma/client": "^7.1.0",
-    "prisma": "^7.1.0",
+    "@prisma/client": "7.1.0",
+    "prisma": "7.1.0",
 
     "aws-sdk": "^2.1518.0",
     "bcrypt": "^5.1.1",
